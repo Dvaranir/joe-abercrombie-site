@@ -4,30 +4,28 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      class="shortcut--icon"
+      rel="shortcut icon"
+      type="icon/svg"
+      href="svg/castle.svg"
+    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-
-    <title>Buy Joe Abercrombie's Earth Circle Books</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,500;0,700;1,400&display=swap"
       rel="stylesheet"
     />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Allison&display=swap"
       rel="stylesheet"
     />
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Glory:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
+
+    <title>Buy Joe Abercrombie's Earth Circle Books</title>
 
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
@@ -46,7 +44,7 @@
         <nav class="nav--panel">
           <a class="nav--btn" href="#sectionBooks">Books</a>
           <a class="nav--btn" href="#sectionReviews">Reviews</a>
-          <a class="nav--btn" href="#">Subscription</a>
+          <a class="nav--btn" href="#sectionSubscribe">Subscription</a>
         </nav>
       </header>
       <main>
@@ -149,12 +147,76 @@
           </div>
         </section>
 
-        <section class="slider">
-          <div class="slide slide--1"></div>
+        <!-- Begin Mailchimp Signup Form -->
+        <section class="subscribe--form__section" id="sectionSubscribe">
+          <form
+            action="https://gmail.us5.list-manage.com/subscribe/post?u=dae8dbda12154bd0f4c9dcf64&amp;id=218a9a7c62"
+            method="post"
+            id="mc-embedded-subscribe-form"
+            name="mc-embedded-subscribe-form"
+            class="validate"
+            target="_blank"
+            novalidate
+          >
+            <div class="subscribe--form">
+              <h2>Subscribe to our news!</h2>
+
+              <div class="mc-field-group">
+                <input
+                  type="email"
+                  value=""
+                  placeholder="Enter your Email"
+                  name="EMAIL"
+                  class="required email"
+                  id="mce-EMAIL"
+                />
+              </div>
+
+              <div id="mce-responses" class="clear">
+                <div
+                  class="response"
+                  id="mce-error-response"
+                  style="display: none"
+                ></div>
+                <div
+                  class="response"
+                  id="mce-success-response"
+                  style="display: none"
+                ></div>
+              </div>
+              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+              <div style="position: absolute; left: -5000px" aria-hidden="true">
+                <input
+                  type="text"
+                  name="b_dae8dbda12154bd0f4c9dcf64_218a9a7c62"
+                  tabindex="-1"
+                  value=""
+                />
+              </div>
+              <div class="clear">
+                <input
+                  type="submit"
+                  value="Subscribe"
+                  name="subscribe"
+                  id="mc-embedded-subscribe"
+                  class="button"
+                />
+              </div>
+            </div>
+          </form>
         </section>
+
+        <!--End mc_embed_signup-->
       </main>
       <footer>
         <p>&#169;Made by Yuriy Plakhin</p>
+        <p>
+          <a href="https://github.com/Yuriy-Plakhin?tab=repositories"
+            ><img src="svg/Github.svg" type="svg" alt="Github Icom" /><strong
+              >GitHub</strong
+            >
+          </a>
+        </p>
       </footer>
     </div>
     <script src="script.js"></script>
