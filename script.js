@@ -50,15 +50,17 @@ const addTextAndShowItWithDelay = function (
   });
 };
 
-addTextAndShowItWithDelay(
-  catchWord,
-  introductionQuote,
-  textShowSpeed / catchWord.length,
-  'catchWord'
-);
-setTimeout(function () {
-  addTextAndShowItWithDelay(nameOfAuthor, authorSign, 50, 'abercrombie--ref');
-}, textShowSpeed + authorSignShowDelay);
+const displayMainImageTextText = function () {
+  addTextAndShowItWithDelay(
+    catchWord,
+    introductionQuote,
+    textShowSpeed / catchWord.length,
+    'catchWord'
+  );
+  setTimeout(function () {
+    addTextAndShowItWithDelay(nameOfAuthor, authorSign, 50, 'abercrombie--ref');
+  }, textShowSpeed + authorSignShowDelay);
+};
 
 navPanel.addEventListener('click', function (e) {
   e.preventDefault();
@@ -68,3 +70,5 @@ navPanel.addEventListener('click', function (e) {
     .querySelector(id)
     .scrollIntoView({ behavior: 'smooth', block: 'center' });
 });
+
+document.addEventListener('DOMContentLoaded', displayMainImageTextText);
