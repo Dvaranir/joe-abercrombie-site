@@ -104,7 +104,11 @@ h1 {
   text-shadow: 0.5rem 0.5rem 0.2rem rgb(0, 0, 0);
 }
 
-.abercrombie-ref {
+.introduction--quote strong {
+  transition: opacity 1.5s;
+}
+
+.abercrombie--ref {
   font-size: 3.6rem;
   text-align: right;
 }
@@ -321,4 +325,12 @@ footer img {
 
 footer a:visited {
   color: white;
+}
+
+.show--element {
+  opacity: 100%;
+}
+
+.hide--element {
+  opacity: 0%;
 }
