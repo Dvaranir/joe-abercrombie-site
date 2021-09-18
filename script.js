@@ -7,6 +7,11 @@ const nameOfAuthor = 'Joe Abercrombie';
 const textShowSpeed = 2000;
 const authorSignShowDelay = 1000;
 
+const header = document.querySelector('#header');
+const goTopBtnAnchor = document.querySelector('.go--top');
+const goTopBtn = document.querySelector('.go--top__btn');
+const introSection = document.querySelector('.section--introduction');
+const booksSection = document.querySelector('#sectionBooks');
 const navPanel = document.querySelector('.nav--panel');
 const introductionQuote = document.querySelector('.introduction--quote');
 const authorSign = document.querySelector('.abercrombie--ref');
@@ -17,18 +22,6 @@ const scrollToSection = function (btn, section) {
     section.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
 };
-
-navPanel.insertAdjacentHTML;
-
-// const addClassWithDelay = function (insertEl, targetEl, delay = 0) {
-//   [...insertEl].map(function (letter, i) {
-//     setTimeout(function () {
-//       targetEl.insertAdjacentHTML(
-//         'beforeEnd',
-//         `<strong class='show--element'>${letter}</strong>`
-//       );
-//     }, i * delay);
-//   });
 
 const addTextAndShowItWithDelay = function (
   insertEl,
@@ -71,4 +64,22 @@ navPanel.addEventListener('click', function (e) {
     .scrollIntoView({ behavior: 'smooth', block: 'center' });
 });
 
+const showLLiftButton = function (entries, observer) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) {
+    goTopBtn.classList.remove('move--down__hide');
+  } else {
+    goTopBtn.classList.add('move--down__hide');
+  }
+};
+
+const introSectionObserver = new IntersectionObserver(showLLiftButton, {
+  root: null,
+  threshold: [0],
+});
+
+introSectionObserver.observe(introSection);
+
+scrollToSection(goTopBtnAnchor, header);
 document.addEventListener('DOMContentLoaded', displayMainImageTextText);

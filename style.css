@@ -327,6 +327,34 @@ footer a:visited {
   color: white;
 }
 
+.go--top {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 12%;
+  left: 93%;
+}
+
+.go--top__btn {
+  position: absolute;
+  transform: rotate(270deg);
+  width: 5rem;
+  transition: transform 1s;
+  opacity: 100%;
+}
+
+.go--top__btn:hover {
+  filter: invert(32%) sepia(67%) saturate(6563%) hue-rotate(244deg)
+    brightness(102%) contrast(89%);
+}
+
+.go--top__btn:active {
+  filter: brightness(100%) contrast(100%);
+}
+
+.move--down__hide {
+  transform: translate(200%, 200%) rotate(0deg);
+}
+
 .show--element {
   opacity: 100%;
 }
