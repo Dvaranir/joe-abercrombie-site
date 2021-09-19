@@ -114,7 +114,36 @@ h1 {
 }
 
 .section--books__slider {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
   margin-bottom: 12rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.slider--arrow {
+  position: absolute;
+  width: 6rem;
+  z-index: 1;
+}
+
+.slider--arrow:hover {
+  background-color: #4935a5;
+}
+
+.slider--arrow:active {
+  background-color: #000;
+}
+
+.slider--left__arrow {
+  transform: rotate(180deg);
+  top: 45%;
+  left: 18%;
+}
+.slider--right__arrow {
+  top: 45%;
+  right: 18%;
 }
 
 .book--card {
@@ -124,9 +153,12 @@ h1 {
   gap: 5%;
   margin: auto;
   max-width: 70%;
-  padding: 2rem 0;
+  padding: 2rem;
   background-color: #4935a5;
   border-radius: 1rem;
+  grid-row: 1;
+  grid-column: 1;
+  transition: transform 1s;
 }
 
 .book--card__text {
@@ -338,17 +370,18 @@ footer a:visited {
   position: absolute;
   transform: rotate(270deg);
   width: 5rem;
-  transition: transform 1s;
+  transition: transform 1s, width 0.4s;
   opacity: 100%;
 }
 
 .go--top__btn:hover {
-  filter: invert(32%) sepia(67%) saturate(6563%) hue-rotate(244deg)
-    brightness(102%) contrast(89%);
+  filter: brightness(0%) contrast(100%) invert(27%) sepia(97%) saturate(3016%)
+    hue-rotate(242deg) brightness(82%) contrast(93%);
 }
 
 .go--top__btn:active {
   filter: brightness(100%) contrast(100%);
+  width: 6rem;
 }
 
 .move--down__hide {

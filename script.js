@@ -1,10 +1,14 @@
 'use-strict';
 
+window.onbeforunload = function () {
+  window.scrollTo(0, 0);
+};
+
 const catchWord =
   'If life has taught me one thing, it’s that there are no villains. Only people, doing their best.';
 const nameOfAuthor = 'Joe Abercrombie';
 
-const textShowSpeed = 2000;
+const textShowSpeed = 5000;
 const authorSignShowDelay = 1000;
 
 const header = document.querySelector('#header');
@@ -15,6 +19,9 @@ const booksSection = document.querySelector('#sectionBooks');
 const navPanel = document.querySelector('.nav--panel');
 const introductionQuote = document.querySelector('.introduction--quote');
 const authorSign = document.querySelector('.abercrombie--ref');
+const carouselElements = document.querySelectorAll('.book--card');
+const sliderRightArrow = document.querySelector('.slider--right__arrow');
+const sliderLeftArrow = document.querySelector('.slider--left__arrow');
 
 const scrollToSection = function (btn, section) {
   btn.addEventListener('click', function (e) {
@@ -80,6 +87,30 @@ const introSectionObserver = new IntersectionObserver(showLLiftButton, {
 });
 
 introSectionObserver.observe(introSection);
+
+let curSlide = 0;
+let maxSlides = carouselElements.length - 1;
+
+const goToSlide = function (slide) {
+  carouselElements.forEach(
+    (s, i) => (s.style.transform = `translateX(${120 * (i - slide)}%)`)
+  );
+};
+
+const nextSlide = function () {
+  if (curSlide === maxSlides) {
+    curSlide = 0;
+  } else curSlide++;
+
+  goToSlide(curSlide);
+};
+
+sliderRightArrow.addEventListener('click', nextSlide);
+sliderLeftArrow.addEventListener('click', nextSlide);
+
+carouselElements.forEach((el, i) => {
+  el.style.transform = `translateX(${i * 120}%`;
+});
 
 scrollToSection(goTopBtnAnchor, header);
 document.addEventListener('DOMContentLoaded', displayMainImageTextText);
