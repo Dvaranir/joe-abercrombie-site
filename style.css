@@ -35,6 +35,10 @@ header {
   margin: 1rem 1rem;
 }
 
+section {
+  transition: opacity 1s, transform 1s;
+}
+
 .logo--h1 {
   display: flex;
   align-items: center;
@@ -126,6 +130,7 @@ h1 {
   position: absolute;
   width: 6rem;
   z-index: 1;
+  border-radius: 50%;
 }
 
 .slider--arrow:hover {
@@ -394,4 +399,9 @@ footer a:visited {
 
 .hide--element {
   opacity: 0%;
+}
+
+.section--move--down__hide {
+  opacity: 0%;
+  transform: translateY(20%);
 }

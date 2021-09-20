@@ -15,6 +15,7 @@ const header = document.querySelector('#header');
 const goTopBtnAnchor = document.querySelector('.go--top');
 const goTopBtn = document.querySelector('.go--top__btn');
 const introSection = document.querySelector('.section--introduction');
+const allSections = document.querySelectorAll('section');
 const booksSection = document.querySelector('#sectionBooks');
 const navPanel = document.querySelector('.nav--panel');
 const introductionQuote = document.querySelector('.introduction--quote');
@@ -87,6 +88,24 @@ const introSectionObserver = new IntersectionObserver(showLLiftButton, {
 });
 
 introSectionObserver.observe(introSection);
+
+const showHiddenSection = function (entries, observer) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) return;
+
+  entry.target.classList.remove('section--move--down__hide');
+  observer.unobserve(entry.target);
+};
+
+const hiddenElementObserver = new IntersectionObserver(showHiddenSection, {
+  root: null,
+  threshold: [0],
+  rootMargin: '-150px',
+});
+
+allSections.forEach(section => {
+  hiddenElementObserver.observe(section);
+});
 
 let curSlide = 0;
 let maxSlides = carouselElements.length - 1;
