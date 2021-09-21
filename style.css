@@ -91,8 +91,7 @@ h1 {
 
 .main--image {
   position: static;
-  max-height: 67rem;
-  filter: brightness(50%) contrast(105%);
+  max-width: fit-content;
 }
 
 .section--introduction blockquote {
@@ -101,11 +100,13 @@ h1 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  color: #0b0708;
+  font-weight: 600;
+  text-shadow: #4d4d4d 15px 5px 50px;
 }
 
 .introduction--quote {
   font-size: 10rem;
-  text-shadow: 0.5rem 0.5rem 0.2rem rgb(0, 0, 0);
 }
 
 .introduction--quote strong {
@@ -113,7 +114,7 @@ h1 {
 }
 
 .abercrombie--ref {
-  font-size: 3.6rem;
+  font-size: 5.6rem;
   text-align: right;
 }
 
@@ -121,9 +122,11 @@ h1 {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
+  margin: auto;
   margin-bottom: 12rem;
   position: relative;
   overflow: hidden;
+  max-width: 100rem;
 }
 
 .slider--arrow {
@@ -144,11 +147,10 @@ h1 {
 .slider--left__arrow {
   transform: rotate(180deg);
   top: 45%;
-  left: 18%;
 }
 .slider--right__arrow {
   top: 45%;
-  right: 18%;
+  right: 0%;
 }
 
 .book--card {
@@ -157,7 +159,7 @@ h1 {
   justify-content: center;
   gap: 5%;
   margin: auto;
-  max-width: 70%;
+  max-width: fit-content;
   padding: 2rem;
   background-color: #4935a5;
   border-radius: 1rem;
@@ -404,4 +406,81 @@ footer a:visited {
 .section--move--down__hide {
   opacity: 0%;
   transform: translateY(20%);
+}
+
+@media only screen and (max-width: 1140px) {
+  /* .introduction--quote {
+    font-size: 8rem;
+  } */
+  html {
+    font-size: 50%;
+  }
+
+  .introduction--quote {
+    font-size: 8rem;
+  }
+}
+
+@media only screen and (max-width: 735.2px) {
+  html {
+    font-size: 35%;
+  }
+
+  .introduction--quote {
+    font-size: 7rem;
+  }
+
+  body .section--reviews {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 90rem;
+  }
+  .section--reviews div:first-child {
+    grid-row: 2;
+  }
+
+  .review {
+    max-width: 80%;
+    gap: 2rem;
+  }
+
+  .review--name {
+    font-size: 2.6rem;
+  }
+
+  .review--main__word {
+    font-size: 3.4rem;
+  }
+
+  .review--text {
+    font-size: 2.5rem;
+    line-height: 3.2rem;
+  }
+
+  .subscribe--form__section {
+    margin-bottom: 13rem;
+    max-width: 80%;
+  }
+}
+
+@media only screen and (max-width: 522px) {
+  html {
+    font-size: 30%;
+  }
+  .introduction--quote {
+    font-size: 6.5rem;
+  }
+
+  .book--card {
+    max-width: 80%;
+  }
+
+  .book--card__title {
+    font-size: 2.5rem;
+  }
+
+  .book--card__description {
+    line-height: 3rem;
+    font-size: 2.2rem;
+  }
 }

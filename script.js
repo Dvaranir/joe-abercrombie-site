@@ -124,8 +124,16 @@ const nextSlide = function () {
   goToSlide(curSlide);
 };
 
+const prevSlide = function () {
+  if (curSlide === 0) {
+    curSlide = maxSlides;
+  } else curSlide--;
+
+  goToSlide(curSlide);
+};
+
 sliderRightArrow.addEventListener('click', nextSlide);
-sliderLeftArrow.addEventListener('click', nextSlide);
+sliderLeftArrow.addEventListener('click', prevSlide);
 
 carouselElements.forEach((el, i) => {
   el.style.transform = `translateX(${i * 120}%`;
