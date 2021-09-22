@@ -100,7 +100,7 @@ const showHiddenSection = function (entries, observer) {
 const hiddenElementObserver = new IntersectionObserver(showHiddenSection, {
   root: null,
   threshold: [0],
-  rootMargin: '-150px',
+  rootMargin: '-250px',
 });
 
 allSections.forEach(section => {

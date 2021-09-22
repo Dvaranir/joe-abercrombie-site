@@ -426,6 +426,10 @@ footer a:visited {
     font-size: 35%;
   }
 
+  .section--introduction {
+    margin-bottom: 20rem;
+  }
+
   .introduction--quote {
     font-size: 7rem;
   }
@@ -458,7 +462,10 @@ footer a:visited {
   }
 
   .subscribe--form__section {
-    margin-bottom: 13rem;
+    margin-bottom: 20rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+
     max-width: 80%;
   }
 }
@@ -482,5 +489,22 @@ footer a:visited {
   .book--card__description {
     line-height: 3rem;
     font-size: 2.2rem;
+  }
+
+  .section--move--down__hide {
+    opacity: 100%;
+    transform: translateY(-20%);
+  }
+}
+
+@media only screen and (max-width: 381px) {
+  html {
+    font-size: 25%;
+  }
+}
+
+@media only screen and (max-width: 321px) {
+  html {
+    font-size: 20%;
   }
 }
