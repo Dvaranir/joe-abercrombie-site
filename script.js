@@ -16,6 +16,9 @@ const goTopBtnAnchor = document.querySelector('.go--top');
 const goTopBtn = document.querySelector('.go--top__btn');
 const introSection = document.querySelector('.section--introduction');
 const allSections = document.querySelectorAll('section');
+const allHiddenSections = document.querySelectorAll(
+  '.section--move--down__hide'
+);
 const booksSection = document.querySelector('#sectionBooks');
 const navPanel = document.querySelector('.nav--panel');
 const introductionQuote = document.querySelector('.introduction--quote');
@@ -132,6 +135,21 @@ const prevSlide = function () {
   goToSlide(curSlide);
 };
 
+const removeClassFromElements = function (elements, cls) {
+  [...elements].forEach(element => {
+    element.classList.remove(cls);
+  });
+};
+
+const removeClassOnWindowWidth = function (windowWidth, elements, cls) {
+  if (window.innerWidth > windowWidth) return;
+  removeClassFromElements(elements, cls);
+};
+
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+};
+
 sliderRightArrow.addEventListener('click', nextSlide);
 sliderLeftArrow.addEventListener('click', prevSlide);
 
@@ -141,3 +159,4 @@ carouselElements.forEach((el, i) => {
 
 scrollToSection(goTopBtnAnchor, header);
 document.addEventListener('DOMContentLoaded', displayMainImageTextText);
+removeClassOnWindowWidth(735, allHiddenSections, 'section--move--down__hide');
