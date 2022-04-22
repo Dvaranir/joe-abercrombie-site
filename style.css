@@ -6,7 +6,7 @@
 
 html {
   font-size: 62.5%;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
   font-weight: 400;
 }
 
@@ -102,7 +102,7 @@ h1 {
 }
 
 .section--introduction blockquote {
-  font-family: 'Allison', cursive;
+  font-family: "Allison", cursive;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -218,7 +218,7 @@ h1 {
 }
 
 .book--card__btn {
-  font-family: 'MedievalSharp', cursive;
+  font-family: "MedievalSharp", cursive;
   font-weight: 600;
   font-size: 2.5rem;
   color: #fff;
@@ -347,7 +347,7 @@ h1 {
 }
 
 .clear input {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
   font-size: 3rem;
   background-color: black;
   border: none;
@@ -434,6 +434,15 @@ footer a:visited {
 .section--move--down__hide {
   opacity: 0%;
   transform: translateY(20%);
+}
+
+.no--select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 @media only screen and (max-width: 1140px) {

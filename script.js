@@ -1,38 +1,38 @@
-'use-strict';
+"use-strict";
 
 window.onbeforunload = function () {
   window.scrollTo(0, 0);
 };
 
 const catchWord =
-  'If life has taught me one thing, it’s that there are no villains. Only people, doing their best.';
-const nameOfAuthor = 'Joe Abercrombie';
+  "If life has taught me one thing, it’s that there are no villains. Only people, doing their best.";
+const nameOfAuthor = "Joe Abercrombie";
 
 const textShowSpeed = 5000;
 const authorSignShowDelay = 1000;
 
 // All Selected Items
-const header = document.querySelector('#header');
-const goTopBtnAnchor = document.querySelector('.go--top');
-const goTopBtn = document.querySelector('.go--top__btn');
-const introSection = document.querySelector('.section--introduction');
-const allSections = document.querySelectorAll('section');
+const header = document.querySelector("#header");
+const goTopBtnAnchor = document.querySelector(".go--top");
+const goTopBtn = document.querySelector(".go--top__btn");
+const introSection = document.querySelector(".section--introduction");
+const allSections = document.querySelectorAll("section");
 const allHiddenSections = document.querySelectorAll(
-  '.section--move--down__hide'
+  ".section--move--down__hide"
 );
-const booksSection = document.querySelector('#sectionBooks');
-const navPanel = document.querySelector('.nav--panel');
-const introductionQuote = document.querySelector('.introduction--quote');
-const authorSign = document.querySelector('.abercrombie--ref');
-const carouselElements = document.querySelectorAll('.book--card');
-const sliderRightArrow = document.querySelector('.slider--right__arrow');
-const sliderLeftArrow = document.querySelector('.slider--left__arrow');
+const booksSection = document.querySelector("#sectionBooks");
+const navPanel = document.querySelector(".nav--panel");
+const introductionQuote = document.querySelector(".introduction--quote");
+const authorSign = document.querySelector(".abercrombie--ref");
+const carouselElements = document.querySelectorAll(".book--card");
+const sliderRightArrow = document.querySelector(".slider--right__arrow");
+const sliderLeftArrow = document.querySelector(".slider--left__arrow");
 
 // Smooth scrolling to sections
 const scrollToSection = function (btn, section) {
-  btn.addEventListener('click', function (e) {
+  btn.addEventListener("click", function (e) {
     e.preventDefault();
-    section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    section.scrollIntoView({ behavior: "smooth", block: "center" });
   });
 };
 
@@ -41,18 +41,18 @@ const addTextAndShowItWithDelay = function (
   insertEl,
   targetEl,
   delay = 0,
-  customClass = 'strong'
+  customClass = "strong"
 ) {
   [...insertEl].map(function (letter, i) {
     const id = `${customClass}--${i + 1}`;
 
     targetEl.insertAdjacentHTML(
-      'beforeEnd',
+      "beforeEnd",
       `<strong class='hide--element ${customClass} ${id}'>${letter}</strong>`
     );
     setTimeout(function () {
       const letter = document.querySelector(`.${id}`);
-      letter.classList.remove('hide--element');
+      letter.classList.remove("hide--element");
     }, i * delay);
   });
 };
@@ -63,31 +63,32 @@ const displayMainImageText = function () {
     catchWord,
     introductionQuote,
     textShowSpeed / catchWord.length,
-    'catchWord'
+    "catchWord"
   );
   setTimeout(function () {
-    addTextAndShowItWithDelay(nameOfAuthor, authorSign, 50, 'abercrombie--ref');
+    addTextAndShowItWithDelay(nameOfAuthor, authorSign, 50, "abercrombie--ref");
   }, textShowSpeed + authorSignShowDelay);
 };
 
 // Adding event to Nav buttons from there's parent
-navPanel.addEventListener('click', function (e) {
+navPanel.addEventListener("click", function (e) {
   e.preventDefault();
-  if (!e.target.classList.contains('nav--btn')) return;
-  const id = e.target.getAttribute('href');
+  if (!e.target.classList.contains("nav--btn")) return;
+  const id = e.target.getAttribute("href");
   document
     .querySelector(id)
-    .scrollIntoView({ behavior: 'smooth', block: 'center' });
+    .scrollIntoView({ behavior: "smooth", block: "center" });
 });
 
 // Showing lift-arrow button which smooth scrolling to nav when clicked
 const showLLiftButton = function (entries) {
   const [entry] = entries;
+  console.log(entry);
 
   if (!entry.isIntersecting) {
-    goTopBtn.classList.remove('move--down__hide');
+    goTopBtn.classList.remove("move--down__hide");
   } else {
-    goTopBtn.classList.add('move--down__hide');
+    goTopBtn.classList.add("move--down__hide");
   }
 };
 
@@ -103,17 +104,17 @@ const showHiddenSection = function (entries, observer) {
   const [entry] = entries;
   if (!entry.isIntersecting) return;
 
-  entry.target.classList.remove('section--move--down__hide');
+  entry.target.classList.remove("section--move--down__hide");
   observer.unobserve(entry.target);
 };
 
 const hiddenElementObserver = new IntersectionObserver(showHiddenSection, {
   root: null,
   threshold: [0],
-  rootMargin: '-250px',
+  rootMargin: "-250px",
 });
 
-allSections.forEach(section => {
+allSections.forEach((section) => {
   hiddenElementObserver.observe(section);
 });
 
@@ -144,7 +145,7 @@ const prevSlide = function () {
 };
 
 const removeClassFromElements = function (elements, cls) {
-  [...elements].forEach(element => {
+  [...elements].forEach((element) => {
     element.classList.remove(cls);
   });
 };
@@ -160,13 +161,13 @@ window.onbeforeunload = function () {
   window.scrollTo(0, 0);
 };
 
-sliderRightArrow.addEventListener('click', nextSlide);
-sliderLeftArrow.addEventListener('click', prevSlide);
+sliderRightArrow.addEventListener("click", nextSlide);
+sliderLeftArrow.addEventListener("click", prevSlide);
 
 carouselElements.forEach((el, i) => {
   el.style.transform = `translateX(${i * 120}%`;
 });
 
 scrollToSection(goTopBtnAnchor, header);
-document.addEventListener('DOMContentLoaded', displayMainImageText);
-removeClassOnWindowWidth(735, allHiddenSections, 'section--move--down__hide');
+document.addEventListener("DOMContentLoaded", displayMainImageText);
+removeClassOnWindowWidth(735, allHiddenSections, "section--move--down__hide");
